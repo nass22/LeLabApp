@@ -6,6 +6,16 @@ from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.stacklayout import StackLayout
 from kivy.metrics import dp
+from kivy.properties import StringProperty
+
+class WidgetsExample(GridLayout):
+    compteur = 1
+    mon_txt = StringProperty("1")
+    
+    def on_button_click(self):
+        self.compteur += 1
+        self.mon_txt = str(self.compteur)
+        
 
 class MainWidget(Widget):
     pass
