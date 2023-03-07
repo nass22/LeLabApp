@@ -1,9 +1,16 @@
 AnchorLayoutExemple:
 
 <AnchorLayoutExemple>:
-    Button:
-        text: "B1"
-        size_hint: .1, .1
+    anchor_x: "center"
+    anchor_y: "bottom"
+
+    BoxLayout:
+        # orientation: "horizontal"
+        size_hint: .5, .1
+        Button:
+            text: "B1"        
+        Button:
+            text: "B2"
 
 <BoxLayoutExemple>:
     orientation: "horizontal"
