@@ -47,3 +47,49 @@
         text: "A"
         pos: 100, 400
         on_press: root.on_button_a_click()
+
+<CanvasExample6>:
+    # Button:
+    # canvas.before:
+    # #before permet de dire que l'on veut mettre les instructions du canvas avant les instructions du button (le contraire est after)
+    #     Rectangle
+    # text: "A"
+    # pos: 100, 100 #le canvas démarre tjs à (0,0), on aura donc deux carrés. Pour éviter celà, on doit utiliser un RelativeLayout à la place du Btn.
+    BoxLayout:
+        size: root.size
+        Widget:
+            canvas:
+                Color:
+                    rgb: 0,1,0
+                Rectangle:
+                    size: self.size
+        # Widget:
+        RelativeLayout:
+            canvas:
+                Color:
+                    rgb: 0,0,1
+                Rectangle:
+                    size: self.size
+                    # pos: self.pos
+
+
+<CanvasExample7>:
+    RelativeLayout:
+        canvas:
+            Color:
+                rgb: 0,0,1
+            Rectangle:
+                size: self.size
+            
+    RelativeLayout:
+        canvas:
+            Color:
+                rgb: 1,1,1
+            Rectangle:
+                size: self.size
+    RelativeLayout:
+        canvas:
+            Color:
+                rgb: 1,0,0
+            Rectangle:
+                size: self.size

@@ -4,6 +4,7 @@ from kivy.graphics.vertex_instructions import Line, Rectangle, Ellipse
 from kivy.graphics.context_instructions import Color
 from kivy.metrics import dp
 from kivy.properties import Clock
+from kivy.uix.boxlayout import BoxLayout
 
 
 Builder.load_file("canvas_examples.kv")
@@ -86,3 +87,10 @@ class CanvasExample5(Widget):
             self.vx = -self.vx
         
         self.ball.pos = (x, y)
+        
+        
+class CanvasExample6(Widget):
+    pass
+
+class CanvasExample7(BoxLayout):
+    pass
