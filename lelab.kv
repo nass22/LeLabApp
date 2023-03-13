@@ -1,96 +1,40 @@
-WidgetsExample:
+#:import layout_examples layout_examples
+#:import widget_examples widget_examples
+#:import navigation_screen_manager navigation_screen_manager
+#:import boxlayout_with_action_bar boxlayout_with_action_bar
 
-<WidgetsExample>:
-    cols: 3
+<MenuPrincipal@BoxLayout>:
+    orientation: "vertical"
     Button:
-        text: "Cliquez"
-        on_press: root.on_button_click()
-    Label:
-        text: root.mon_txt
-        font_name: "fonts/Lcd.ttf"
-        font_size: "80dp"
-        color: 1, 0.5, 1, 1
-
-
-<PageLayoutExemple@PageLayout>:
-    MainWidget:
-    BoxLayoutExemple:
-    AnchorLayoutExemple:
-    GridLayoutExemple:
-
-<ScrollViewExemple@ScrollView>:
-    StackLayoutExemple:
-        size_hint: 1, None
-        height: self.minimum_height
-
-<StackLayoutExemple>:
-    # orientation: "rl-bt"
-    # padding: ("20dp","0dp", "100dp","50dp")
-    # spacing: "20dp", "20dp"
-
-<GridLayoutExemple@GridLayout>:
-    cols: 3
+        text: "Layouts"
+        on_press: app.manager.push("LayoutExemplesTabs")
     Button:
-        text: "A"
-        size_hint: None, 1
-        width: "60dp"
-    BoxLayoutExemple:
+        text: "Widgets"
+        on_press: app.manager.push("WidgetsExample")
     Button:
-        text: "C"
-    Button:
-        text: "D"
-        size_hint: None, 1
-        width: "60dp"
-    Button:
-        text: "E"
-    Button:
-        text: "F"
+        text: "Images"
+        on_press: app.manager.push("ImageExample")
 
+<MyScreenManager>:
+    Screen:
+        name: "MenuPrincipal"
+        MenuPrincipal:
+    Screen:
+        name: "LayoutExemplesTabs"
+        BoxLayoutWithActionBar:
+            title: "Layouts"
+            LayoutExemplesTabs:
+    Screen:
+        name: "WidgetsExample"
+        BoxLayoutWithActionBar:
+            title: "Widgets"
+            WidgetsExample:
+    Screen:
+        name: "ImageExample"
+        BoxLayoutWithActionBar:
+            title: "Images"
+            ImageExample:
 
-<AnchorLayoutExemple>:
-    anchor_x: "center"
-    anchor_y: "bottom"
-
-    BoxLayout:
-        # orientation: "horizontal"
-        size_hint: .5, .1
-        Button:
-            text: "B1"        
-        Button:
-            text: "B2"
-
-<BoxLayoutExemple>:
-    orientation: "horizontal"
-    Button:
-        text: "A"
-        size_hint:  .5, .5
-        # size: "100dp", "60dp"
-        # height: "50dp"
-        pos_hint: { "top": 1 }
-
-    BoxLayout:
-        orientation: "vertical"
-        spacing: "10dp"
-        Button:
-            text: "1"
-        Button:
-            text: "2"
-        Button:
-            text: "3"
-        Button:
-            text: "4"
+        
     
-    Label:
-        text: "C"
 
-<MainWidget>:
-    Button:
-        text: "Hello"
-        size: "100dp", "60dp"
-        pos: "200dp", "100dp"
-    
-    Label:
-        text: "Hello2"
-        size: "100dp", "60dp"
-        pos: "300dp", "100dp"
-        color: 1,0,0,1 #(r,v,b,a)

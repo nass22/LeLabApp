@@ -1,0 +1,66 @@
+<ImageExample@GridLayout>:
+    cols:3
+    Image:
+        source: "images/cake.jpg"
+    Image:
+        source: "images/cake.jpg"
+        allow_stretch: True #Ici on autorise d'étendre l'image
+    Image:
+        source: "images/cake.jpg"
+        allow_stretch: True
+        keep_ratio: False #Permet de prendre la place de toute sa colonne. Fonctionne obligatoirement avec allow_stretch
+    Image:
+    #ou AsyncImage
+        source: "images/donut.gif"
+        anim_delay: 1/60 # Permet d'avoir une image à 60fps    
+
+<WidgetsExample>:
+    cols: 3
+    ToggleButton:
+        text: "OFF"
+        on_state: root.on_toggle_button_state(self)
+        size_hint: None, 1
+        width: "100dp"
+    Button:
+        text: "Cliquez"
+        on_press: root.on_button_click()
+        disabled: not root.counter_toggle # disabled (Boolean): Permet d'activer ou désactiver le bouton. root.counter_toggle est la variable du fichier main. Le not permet d'inverser la logique. Si le compteur est actif, quand il est sur True
+    Label:
+        text: root.mon_txt
+        font_name: "fonts/Lcd.ttf"
+        font_size: "80dp"
+        color: 1, 0.5, 1, 1
+    Switch:
+        id: switch
+        active: True
+        on_active: root.on_switch_state(self)
+        size_hint: None, 1
+        width: "100dp"
+    Slider:
+    # A tjs un min et max
+        id: slider_counter
+        min: 0
+        max: 100
+        value: 50
+        on_value: root.on_slider_value(self) #on_value permet de récupérer la valeur
+        orientation: "vertical" #permet de choisir l'orientation de son slider
+        disabled: not switch.active
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: str(int(slider_counter.value))
+            font_name: "fonts/Lcd.ttf"
+            font_size: "80dp"
+            color: 1, 0.5, 1, 1
+        ProgressBar:
+            max:100
+            value: slider_counter.value
+    TextInput:
+        id: text_input
+        size_hint: None, 1
+        width: "100dp"
+        text: "texte Afiicher" # permet de mettre du text dans l'input
+        multiline: False #permet d'écrire sur une seule ligne et lorsqu'on tape sur enter, mon input est valider
+        on_text_validate: root.on_text_validate(self) #quand on tape sur enter on appelle la fonction
+    Label:
+        text: root.text_input_label
