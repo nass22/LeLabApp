@@ -12,6 +12,6 @@ class LeLabApp(App):
     def build(self):
         self.manager = MyScreenManager()
         # return self.manager
-        return CanvasExample3()
+        return CanvasExample4()
 
 LeLabApp().run()
